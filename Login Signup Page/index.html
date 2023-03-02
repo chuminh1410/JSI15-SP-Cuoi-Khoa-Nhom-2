@@ -1,59 +1,60 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Netflix Login Page</title>
-    <style>
-      body {
-        background-color: #eeeeee;
-      }
+<html lang="en">
 
-      .container {
-        width: 400px;
-        margin: 0 auto;
-        border: 1px solid #ccc;
-        padding: 10px;
-      }
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="./index.css">
 
-      input[type="text"],
-      input[type="password"] {
-        display: block;
-        margin: 10px 0;
-        width: 100%;
-        box-sizing: border-box;
-      }
+<body>
 
-      input[type="submit"] {
-        margin-top: 20px;
-        width: 100%;
-        background-color: #333;
-        padding: 10px;
-        color: #fff;
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <form method="POST">
-        <label>Username</label>
-        <input type="text" name="username" required />
-
-        <label>Password</label>
-        <input type="password" name="password" required />
-
-        <input type="submit" value="Login" />
-      </form>
+    <div class="sign-up-container">
+        <h1>Sign Up</h1>
+        <form>
+            <input type="text" placeholder="Name" id="name" />
+            <input type="email" placeholder="Email" id="email" />
+            <input type="password" placeholder="Password" id="password" />
+            <input type="password" placeholder="Confirm Password" id="confirm-password" />
+            <button id="sign-up-btn">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="#" id="sign-in-link">Sign In</a></p>
     </div>
 
-    <script>
-      const form = document.querySelector("form");
+    <div class="sign-in-container">
+        <h1>Sign In</h1>
+        <form>
+            <input type="email" placeholder="Email" id="sign-in-email" />
+            <input type="password" placeholder="Password" id="sign-in-password" />
+            <button id="sign-in-btn">Sign In</button>
+        </form>
+        <p>Don't have an account? <a href="#" id="sign-up-link">Sign Up</a></p>
+    </div>
 
-      form.addEventListener("submit", function(e) {
-        e.preventDefault();
-        const usernameValue = form.username.value;
-        const passwordValue = form.password.value;
-      });
-    </script>
-  </body>
-</html> 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="./index.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
+        const firebaseConfig = {
+          apiKey: "AIzaSyDrKE5qjjJ0Q1O3xF2PnnzHmKgZUwUv5nw",
+          authDomain: "login-create-account-342fa.firebaseapp.com",
+          projectId: "login-create-account-342fa",
+          storageBucket: "login-create-account-342fa.appspot.com",
+          messagingSenderId: "691987920915",
+          appId: "1:691987920915:web:34a4171cb5fbe3efca27e6",
+          measurementId: "G-C23QH1JNR7"
+        };
+      
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+
+</body>
+
+</html>
