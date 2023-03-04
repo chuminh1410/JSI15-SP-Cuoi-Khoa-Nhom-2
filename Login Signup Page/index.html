@@ -5,11 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Netflix</title>
+    <link rel="shortcut icon" href="https://cdn.iconscout.com/icon/free/png-256/netflix-6-722723.png"
+        type="image/x-icon">
 </head>
 <link rel="stylesheet" href="./index.css">
 
 <body>
+    <div class="sign-in-container">
+        <h1>Sign In</h1>
+        <form>
+            <input type="email" placeholder="Email or phone number" id="sign-in-email" />
+            <input type="password" placeholder="Password" id="sign-in-password" />
+            <button id="sign-in-btn">Sign In</button>
+        </form>
+        <p>Don't have an account? <a href="#" id="sign-up-link">Sign Up</a></p>
+    </div>
 
     <div class="sign-up-container">
         <h1>Sign Up</h1>
@@ -23,15 +34,6 @@
         <p>Already have an account? <a href="#" id="sign-in-link">Sign In</a></p>
     </div>
 
-    <div class="sign-in-container">
-        <h1>Sign In</h1>
-        <form>
-            <input type="email" placeholder="Email" id="sign-in-email" />
-            <input type="password" placeholder="Password" id="sign-in-password" />
-            <button id="sign-in-btn">Sign In</button>
-        </form>
-        <p>Don't have an account? <a href="#" id="sign-up-link">Sign Up</a></p>
-    </div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -42,18 +44,18 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
         const firebaseConfig = {
-          apiKey: "AIzaSyDrKE5qjjJ0Q1O3xF2PnnzHmKgZUwUv5nw",
-          authDomain: "login-create-account-342fa.firebaseapp.com",
-          projectId: "login-create-account-342fa",
-          storageBucket: "login-create-account-342fa.appspot.com",
-          messagingSenderId: "691987920915",
-          appId: "1:691987920915:web:34a4171cb5fbe3efca27e6",
-          measurementId: "G-C23QH1JNR7"
+            apiKey: "AIzaSyDrKE5qjjJ0Q1O3xF2PnnzHmKgZUwUv5nw",
+            authDomain: "login-create-account-342fa.firebaseapp.com",
+            projectId: "login-create-account-342fa",
+            storageBucket: "login-create-account-342fa.appspot.com",
+            messagingSenderId: "691987920915",
+            appId: "1:691987920915:web:34a4171cb5fbe3efca27e6",
+            measurementId: "G-C23QH1JNR7"
         };
-      
+
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
-      </script>
+    </script>
 
 </body>
 

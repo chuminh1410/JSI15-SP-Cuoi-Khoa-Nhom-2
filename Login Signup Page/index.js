@@ -45,16 +45,16 @@ signInBtn.addEventListener("click", e => {
     }
 });
 
-signUpLink.addEventListener("click", e => {
-    e.preventDefault();
-    signUpContainer.style.display = "block";
-    signInContainer.style.display = "none";
-});
-
 signInLink.addEventListener("click", e => {
     e.preventDefault();
     signInContainer.style.display = "block";
     signUpContainer.style.display = "none";
+});
+
+signUpLink.addEventListener("click", e => {
+    e.preventDefault();
+    signUpContainer.style.display = "block";
+    signInContainer.style.display = "none";
 });
 
 window.addEventListener("load", () => {
