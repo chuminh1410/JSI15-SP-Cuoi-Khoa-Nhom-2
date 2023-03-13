@@ -3,60 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix</title>
-    <link rel="shortcut icon" href="https://cdn.iconscout.com/icon/free/png-256/netflix-6-722723.png"
-        type="image/x-icon">
+    <link rel="stylesheet" href="./index.css">
 </head>
-<link rel="stylesheet" href="./index.css">
+<bdy>
+    <div class="signinup">
+        <div class="container">
+            <h1>Sign In</h1>
+            <form>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+                <button type="submit" id="submit-btn">Sign In</button>
+            </form>
+            <p class="sign-up-link">Don't have an account? <a href="#" onclick="showSignUp()">Sign up now.</a></p>
+        </div>
 
-<body>
-    <div class="sign-in-container">
-        <h1>Sign In</h1>
-        <form id="loginform">
-            <input type="email" placeholder="Email or phone number" id="sign-in-email" />
-            <input type="password" placeholder="Password" id="sign-in-password" />
-            <button id="sign-in-btn">Sign In</button>
-        </form>
-        <p>Don't have an account? <a href="#" id="sign-up-link">Sign Up</a></p>
+        <div class="container sign-up-container" style="display:none">
+            <h1>Sign Up</h1>
+            <form>
+                <label for="new-email">Email</label>
+                <input type="email" id="new-email" name="new-email" placeholder="Enter your email">
+                <label for="new-password">Password</label>
+                <input type="password" id="new-password" name="new-password" placeholder="Enter your password">
+                <button type="submit" id="signup-btn">Sign Up</button>
+            </form>
+            <p class="sign-up-link">Already have an account? <a href="#" onclick="showSignIn()">Sign in now.</a></p>
+        </div>
     </div>
 
-    <div class="sign-up-container">
-        <h1>Sign Up</h1>
-        <form>
-            <input type="text" placeholder="Name" id="name" />
-            <input type="email" placeholder="Email" id="email" />
-            <input type="password" placeholder="Password" id="password" />
-            <input type="password" placeholder="Confirm Password" id="confirm-password" />
-            <button id="sign-up-btn">Sign Up</button>
-        </form>
-        <p>Already have an account? <a href="#" id="sign-in-link">Sign In</a></p>
-    </div>
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="./index.js"></script>
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
-        const firebaseConfig = {
-            apiKey: "AIzaSyDrKE5qjjJ0Q1O3xF2PnnzHmKgZUwUv5nw",
-            authDomain: "login-create-account-342fa.firebaseapp.com",
-            projectId: "login-create-account-342fa",
-            storageBucket: "login-create-account-342fa.appspot.com",
-            messagingSenderId: "691987920915",
-            appId: "1:691987920915:web:34a4171cb5fbe3efca27e6",
-            measurementId: "G-C23QH1JNR7"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-    </script>
-
 </body>
 
 </html>
