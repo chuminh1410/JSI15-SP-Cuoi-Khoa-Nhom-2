@@ -10,7 +10,7 @@ window.addEventListener('scroll', () => {
 
 async function timphim() {
 
-    const searchText = document.getElementById('namefilm').value;
+    const searchText = document.getElementById('tenphim').value;
     const options = {
         method: 'GET',
         headers: {
@@ -27,9 +27,9 @@ async function timphim() {
 
 
 
-function displayinformation(data) {
+function displayinformation(results) {
 
-    const comfirmed1 = data.confirmed;
+    const comfirmed1 = results.results[0];
     const deaths1 = data.deaths;
     const last_checked1 = data.lastChecked;
     const last_report1 = data.lastReported;
