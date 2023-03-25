@@ -1,16 +1,15 @@
 const nav = document.getElementById("nav");
 
-window.addEventListener('scroll', () =>{
-    if(window.scrollY >=100){
+window.addEventListener('scroll', () => {
+    if (window.scrollY >= 100) {
         nav.classList.add('nav_black')
-    }else{
+    } else {
         nav.classList.remove('nav_black')
     }
 })
 
+async function timphim() {
 
-
-async function myFunction() {
     const searchText = document.getElementById('namefilm').value;
     const options = {
         method: 'GET',
@@ -21,32 +20,22 @@ async function myFunction() {
     };
 
     await fetch(`https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${searchText}&country=uk`, options)
-        .then((response) => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error("NETWORK RESPONSE ERROR");
-            }
-        })
-        .then(data => {
-            console.log(data);
-            displayinformation(data.data)
-        })
-        .catch((error) => console.error("FETCH ERROR:", error));
-    document.getElementById("country").value = "";
-
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
 }
 
 
+
 function displayinformation(data) {
-    
+
     const comfirmed1 = data.confirmed;
     const deaths1 = data.deaths;
     const last_checked1 = data.lastChecked;
     const last_report1 = data.lastReported;
     const location1 = data.location;
     const recovered1 = data.recovered;
-    
+
 
     const div0 = document.getElementById("return_0")
     const div1 = document.getElementById("return_1");
@@ -54,7 +43,7 @@ function displayinformation(data) {
     const div3 = document.getElementById("return_3");
     const div4 = document.getElementById("return_4");
     const div5 = document.getElementById("return_5");
-    const div6 = document.getElementById("return_6");   
+    const div6 = document.getElementById("return_6");
 
     const top = document.createElement("h1");
     top.innerHTML = "Information returned below: ";
