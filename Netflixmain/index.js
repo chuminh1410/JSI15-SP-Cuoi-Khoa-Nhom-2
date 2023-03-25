@@ -20,16 +20,24 @@ async function timphim() {
     };
 
     await fetch(`https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${searchText}&country=uk`, options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error("NETWORK RESPONSE ERROR");
+            }
+        })
+        .then(data => {
+            console.log(data);
+            displayinformation(data)
+        })
+        .catch((error) => console.error("FETCH ERROR:", error));
 }
 
 
 
-function displayinformation(results) {
+function displayinformation(data) {
 
-    const comfirmed1 = results.results[0];
     const deaths1 = data.deaths;
     const last_checked1 = data.lastChecked;
     const last_report1 = data.lastReported;
@@ -45,16 +53,12 @@ function displayinformation(results) {
     const div5 = document.getElementById("return_5");
     const div6 = document.getElementById("return_6");
 
-    const top = document.createElement("h1");
-    top.innerHTML = "Information returned below: ";
-    div0.appendChild(top);
 
-    const heading = document.createElement("h1");
-    const heading_1 = document.createElement("h1");
+    const heading = document.createElement("img");
+    const comfirmed1 = data.results[0].picture;
+    heading.src = comfirmed1;
     heading.innerHTML = comfirmed1;
-    heading_1.innerHTML = "Case comfirmed: ";
-    div1.appendChild(heading_1);
-    div1.appendChild(heading);
+    div1.appendChild(heading.src);
 
     const heading1 = document.createElement("h1");
     const heading_2 = document.createElement("h1");
