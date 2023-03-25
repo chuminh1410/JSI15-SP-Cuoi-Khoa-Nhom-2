@@ -11,6 +11,9 @@ function showSignIn() {
     signInContainer.style.display = 'flex';
 }
 
+
+
+
 // document.getElementById('submit-btn').addEventListener('click', function(event) {
 //     event.preventDefault();
 //     const email = document.getElementById('email').value;

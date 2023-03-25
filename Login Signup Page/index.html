@@ -10,11 +10,11 @@
     <div class="signinup">
         <div class="container">
             <h1>Sign In</h1>
-            <form>
+            <form id="login-form">
                 <label for="email"></label>
-                <input type="email" id="email" name="email" placeholder="Enter your email">
+                <input type="email" id="login-email" name="email" placeholder="Enter your email">
                 <label for="password"></label>
-                <input type="password" id="password" name="password" placeholder="Enter your password">
+                <input type="password" id="login-password" name="password" placeholder="Enter your password">
                 <button type="submit" id="submit-btn">Sign In</button>
             </form>
             <p class="sign-up-link">Don't have an account? <a href="#" onclick="showSignUp()">Sign up now.</a></p>
@@ -24,41 +24,44 @@
             <h1>Sign Up</h1>
             <form id="signup-form">
                 <label for="new-email"></label>
-                <input type="email" id="new-email" name="new-email" placeholder="Enter your email">
+                <input type="email" id="signup-email" name="new-email" placeholder="Enter your email">
                 <label for="new-password"></label>
-                <input type="password" id="new-password" name="new-password" placeholder="Enter your password">
+                <input type="password" id="signup-password" name="new-password" placeholder="Enter your password">
                 <button type="submit" id="signup-btn">Sign Up</button>
             </form>
             <p class="sign-up-link">Already have an account? <a href="#" onclick="showSignIn()">Sign in now.</a></p>
         </div>
     </div>
 
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
-    
-        const firebaseConfig = {
-          apiKey: "AIzaSyB6FDF1ej0q5r6plUNP5clgWY3d_u6j5v8",
-          authDomain: "database-72236.firebaseapp.com",
-          projectId: "database-72236",
-          storageBucket: "database-72236.appspot.com",
-          messagingSenderId: "795572450000",
-          appId: "1:795572450000:web:9d319927a1233ef8fe64d5",
-          measurementId: "G-CVGTTCB7K0"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-
-        const auth = firebase.auth();
-        const db = firebase.firestore();
-
-        db.settings({ timestampInsnapshots: true });
-      </script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-functions.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyB6FDF1ej0q5r6plUNP5clgWY3d_u6j5v8",
+        authDomain: "database-72236.firebaseapp.com",
+        projectId: "database-72236",
+        storageBucket: "database-72236.appspot.com",
+        messagingSenderId: "795572450000",
+        appId: "1:795572450000:web:9d319927a1233ef8fe64d5",
+        measurementId: "G-CVGTTCB7K0"
+      };
+      firebase.initializeApp(config);
+  
+      // make auth and firestore references
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+      const functions = firebase.functions();
+  
+      // update firestore settings
+      db.settings({ timestampsInSnapshots: true });
+    </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/index.js"></script>
     <script src="./index.js"></script>
     <script src="auth.js"></script>
 </body>
